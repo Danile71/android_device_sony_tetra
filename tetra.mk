@@ -1,4 +1,5 @@
-# Copyright (C) 2010 The Android Open Source Project
+# Copyright (C) 2017 The Android Open Source Project
+# Copyright (C) 2017 Tristan Marsell
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,18 +23,15 @@
 # Release name
 PRODUCT_RELEASE_NAME := tetra
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_tablet_wifionly.mk)
+$(call inherit-product, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/sony/tetra/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := tetra
-PRODUCT_NAME := cm_tetra
+PRODUCT_NAME := tetra
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := SmartWatch 3
 PRODUCT_MANUFACTURER := Sony
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=tetra
+PRODUCT_CHARACTERISTICS := nosdcard,watch
