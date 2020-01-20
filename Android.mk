@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2017 The Android Open Source Project
-# Copyright (C) 2017 Tristan Marsell
+# Copyright (C) 2012 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +19,9 @@
 # named (liblights.tuna), and must build everywhere, or limit themselves
 # to only building on ARM if they include assembly. Individual makefiles
 # are responsible for having their own logic, for fine-grained control.
+
 LOCAL_PATH := $(call my-dir)
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifeq ($(TARGET_DEVICE),tetra)
+    include $(call first-makefiles-under,$(LOCAL_PATH))
+endif
